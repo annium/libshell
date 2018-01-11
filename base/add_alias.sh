@@ -6,5 +6,5 @@ function libshell_add_alias {
     local alias=$2
     local value=${@:3}
 
-    libshell_add_line_to_file $file alias $alias="$value"
+    libshell_add_line_to_file $file alias $alias="'"$value"'"
 }
