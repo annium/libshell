@@ -7,14 +7,20 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 source $dir/init.sh
 
 
-# get installation folder
+# configure paths
 
 default_installation_folder="/opt"
-echo "Where libshell was installed? ($default_installation_folder)"
-read installation_folder
+default_profile_file="$HOME/.bash_profile"
+default_aliases_file="$HOME/.libshell_aliases"
 
-if [[ ! -d $installation_folder ]]; then
+if [[ $# -eq 0 ]]; then
     installation_folder=$default_installation_folder
+    profile_file=$default_profile_file
+    aliases_file=$default_aliases_file
+else
+    installation_folder=${1:-$default_installation_folder}
+    installation_folder=${2:-$default_profile_file}
+    installation_folder=${3:-$default_aliases_file}
 fi
 
 if [[ ! -w $installation_folder ]]; then
@@ -24,35 +30,8 @@ fi
 
 installation_folder=$installation_folder/libshell
 
-
-# get profile file
-
-default_profile_file="$HOME/.bash_profile"
-echo "Which profile file was used? ($default_profile_file)"
-read profile_file
-
-if [[ ! -f $profile_file ]]; then
-    profile_file=$default_profile_file
-fi
-
 if [[ ! -w $profile_file ]]; then
     echo "Profile file $profile_file is not writable. Change permissions to continue."
-    exit 1
-fi
-
-
-# get aliases file
-
-default_aliases_file="$HOME/.libshell_aliases"
-echo "Which aliases file was used? ($default_aliases_file)"
-read aliases_file
-
-if [[ ! -f $aliases_file ]]; then
-    aliases_file=$default_aliases_file
-fi
-
-if [[ ! -r $aliases_file ]]; then
-    echo "Aliases file $aliases_file is not readable. Change permissions to continue."
     exit 1
 fi
 
@@ -71,15 +50,17 @@ libshell_delete_line_from_file $profile_file source $installation_folder/init.sh
 
 # remove aliases from profile_file
 
-echo "Removing aliases from $profile_file..."
-lattice='#'
-while read key value || [[ -n "$value" ]]
-do
-    # if not comment line and both key and value given - add alias
-    if [[ $key != $lattice* ]] && [[ ! -z $key ]] && [[ ! -z $value ]]; then
-        libshell_delete_alias $profile_file $key
-    fi
-done < $aliases_file
+if [[ -r $aliases_file ]]; then
+    echo "Removing aliases from $profile_file..."
+    lattice='#'
+    while read key value || [[ -n "$value" ]]
+    do
+        # if not comment line and both key and value given - add alias
+        if [[ $key != $lattice* ]] && [[ ! -z $key ]] && [[ ! -z $value ]]; then
+            libshell_delete_alias $profile_file $key
+        fi
+    done < $aliases_file
+fi
 
 
 # Report success and give instructions
