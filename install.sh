@@ -2,9 +2,9 @@
 
 set -e
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+dir=$(dirname "${BASH_SOURCE[0]}")
 
-source ./init.sh
+source $dir/init.sh
 
 
 # get installation folder
@@ -79,6 +79,7 @@ while read key value || [[ -n "$value" ]]
 do
     # if not comment line and both key and value given - add alias
     if [[ $key != $lattice* ]] && [[ ! -z $key ]] && [[ ! -z $value ]]; then
+        libshell_delete_alias $profile_file $key
         libshell_add_alias $profile_file $key $value
     fi
 done < $aliases_file

@@ -2,9 +2,9 @@
 
 set -e
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+dir=$(dirname "${BASH_SOURCE[0]}")
 
-source ./init.sh
+source $dir/init.sh
 
 
 # get installation folder

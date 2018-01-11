@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+dir=$(dirname "${BASH_SOURCE[0]}")
 
-for file in $(find ./base -name '*.sh'); do
+for file in $(find $dir/base $dir/vendor -name '*.sh'); do
     source $file
 done
