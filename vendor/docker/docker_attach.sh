@@ -9,7 +9,7 @@ function lib_docker_attach {
     docker exec \
         -it \
         $name \
-        /bin/bash
+        /bin/sh
 }
 
 export -f lib_docker_attach
