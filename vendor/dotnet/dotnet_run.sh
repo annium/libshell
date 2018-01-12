@@ -7,9 +7,12 @@ function lib_dotnet_run {
     local name=$(basename $project .csproj)
     local args=${@:2}
 
-    if [ ! -d $path/bin ]; then
+    if [[ ! -d $path/bin ]] || [[ -z $(find $path/bin -name "$name.dll" | head -n 1) ]]; then
         dotnet build $project
     fi
 
-    dotnet $(find $path/bin -name "$name.dll" | head -n 1) $args
+    dll=$(find $path/bin -name "$name.dll" | head -n 1)
+    cd $(dirname $dll) && dotnet $(basename $dll) $args
 }
+
+export -f lib_dotnet_run

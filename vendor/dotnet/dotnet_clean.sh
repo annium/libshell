@@ -19,3 +19,5 @@ function lib_dotnet_clean {
         rm -f $file
     done
 }
+
+export -f lib_dotnet_clean
