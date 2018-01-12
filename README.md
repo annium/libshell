@@ -2,7 +2,7 @@
 
 This is a generic helper library, that can be used to simplify scripting.
 Main capabilities:
-- provides lot of namespaced functions in user namespace, starting from common prefix (`libshell_` for Bash)
+- provides lot of namespaced functions in user namespace, starting from common prefix (`lib_` for Bash)
 - capability to massively define convenient aliases for used functions
 
 ## Common instructions
