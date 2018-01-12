@@ -8,3 +8,5 @@ function lib_delete_line_from_file {
     content=$(cat $file | grep -v "$line")
     echo "$content" > $file
 }
+
+export -f lib_delete_line_from_file

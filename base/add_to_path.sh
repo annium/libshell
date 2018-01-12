@@ -7,3 +7,5 @@ function lib_add_to_path {
 
     lib_add_line_to_file $file 'export PATH=$PATH:'$path
 }
+
+export -f lib_add_to_path

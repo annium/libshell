@@ -7,3 +7,5 @@ function lib_delete_alias {
     
     lib_delete_line_from_file $file alias $alias=
 }
+
+export -f lib_delete_alias

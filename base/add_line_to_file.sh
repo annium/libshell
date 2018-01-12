@@ -9,3 +9,5 @@ function lib_add_line_to_file {
         echo $line >> $file
     fi
 }
+
+export -f lib_add_line_to_file

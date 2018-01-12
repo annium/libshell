@@ -9,3 +9,5 @@ function lib_docker_run {
     
     docker run --name $tag --rm $tag $args
 }
+
+export -f lib_docker_run

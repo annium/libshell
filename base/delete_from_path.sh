@@ -7,3 +7,5 @@ function lib_delete_from_path {
 
     lib_delete_line_from_file $file 'export PATH=$PATH:'$path
 }
+
+export -f lib_delete_from_path

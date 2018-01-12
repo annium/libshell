@@ -8,3 +8,5 @@ function lib_add_alias {
 
     lib_add_line_to_file $file alias $alias="'"$value"'"
 }
+
+export -f lib_add_alias

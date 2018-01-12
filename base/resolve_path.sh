@@ -10,3 +10,5 @@ function lib_resolve_path {
         echo $(cd $(dirname $path) && pwd -P)/$(basename $path)
     fi
 }
+
+export -f lib_resolve_path

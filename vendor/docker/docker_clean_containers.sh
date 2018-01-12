@@ -11,3 +11,5 @@ function lib_docker_clean_containers {
         docker rm $id > /dev/null
     done
 }
+
+export -f lib_docker_clean_containers

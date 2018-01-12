@@ -10,3 +10,5 @@ function lib_docker_clean_images {
         docker image rm $id > /dev/null
     done
 }
+
+export -f lib_docker_clean_images

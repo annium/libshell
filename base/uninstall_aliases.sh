@@ -21,3 +21,5 @@ function lib_uninstall_aliases {
     echo "Delete aliases with $aliases_target_file"
     rm -f $aliases_target_file
 }
+
+export -f lib_uninstall_aliases

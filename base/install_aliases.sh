@@ -36,3 +36,5 @@ function lib_install_aliases {
         fi
     done < $aliases_source_file
 }
+
+export -f lib_install_aliases

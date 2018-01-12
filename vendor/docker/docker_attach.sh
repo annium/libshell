@@ -11,3 +11,5 @@ function lib_docker_attach {
         $name \
         /bin/bash
 }
+
+export -f lib_docker_attach

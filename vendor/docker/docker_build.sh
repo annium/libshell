@@ -11,3 +11,5 @@ function lib_docker_build {
     echo "Build $tag image from $dockerfile"
     docker build -f $dockerfile -t $tag $args
 }
+
+export -f lib_docker_build
