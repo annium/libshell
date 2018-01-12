@@ -5,7 +5,7 @@ function lib_docker_run {
     local tag=$1
     local args=${@:2}
     
-    echo "Running container $tag"
+    echo "Run container $tag"
     
     docker run --name $tag --rm $tag $args
 }

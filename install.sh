@@ -11,7 +11,7 @@ source $dir/installation_configuration.sh
 
 # copy libshell to installation folder
 
-echo "Installing to $installation_folder"
+echo "Install to $installation_folder"
 rm -rf $installation_folder
 mkdir -p $installation_folder
 cp -rf base vendor init.sh $installation_folder
@@ -19,14 +19,14 @@ cp -rf base vendor init.sh $installation_folder
 
 # add source instruction to profile_file
 
-echo "Writing source instruction to $profile_file"
+echo "Write source instruction to $profile_file"
 lib_add_line_to_file $profile_file source $installation_folder/init.sh
 
 
 # write aliases to profile_file
 
 if [[ -r $aliases_file ]]; then
-    echo "Writing aliases to $profile_file"
+    echo "Write aliases to $profile_file"
     lattice='#'
     while read key value || [[ -n "$value" ]]
     do

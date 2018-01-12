@@ -4,7 +4,7 @@
 function lib_docker_attach {
     local name=$1
 
-    echo "Attaching to container $name"
+    echo "Attach to container $name"
 
     docker exec \
         -it \

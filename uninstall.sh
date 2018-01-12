@@ -11,20 +11,20 @@ source $dir/installation_configuration.sh
 
 # remove libshell from installation folder
 
-echo "Uninstalling from $installation_folder"
+echo "Uninstall from $installation_folder"
 rm -rf $installation_folder
 
 
 # remove source instruction from profile_file
 
-echo "Removing source instruction from $profile_file"
+echo "Remove source instruction from $profile_file"
 lib_delete_line_from_file $profile_file source $installation_folder/init.sh
 
 
 # remove aliases from profile_file
 
 if [[ -r $aliases_file ]]; then
-    echo "Removing aliases from $profile_file"
+    echo "Remove aliases from $profile_file"
     lattice='#'
     while read key value || [[ -n "$value" ]]
     do
