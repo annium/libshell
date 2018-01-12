@@ -3,7 +3,7 @@
 # lib_uninstall_aliases /path/to/profile_file
 function lib_uninstall_aliases {
     local profile_file=$(lib_resolve_path $1)
-    local aliases_target_file=$(dirname $profile_file)/.libshell_aliases
+    local aliases_target_file=$profile_file.libshell_aliases
 
     if [[ ! -w $profile_file ]]; then
         echo "Profile file $profile_file is not writable. Change permissions to continue."
