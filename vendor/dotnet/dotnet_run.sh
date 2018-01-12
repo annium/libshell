@@ -12,7 +12,10 @@ function lib_dotnet_run {
     fi
 
     dll=$(find $path/bin -name "$name.dll" | head -n 1)
-    cd $(dirname $dll) && dotnet $(basename $dll) $args
+    dir=$(pwd)
+    cd $(dirname $dll)
+    dotnet $(basename $dll) $args
+    cd $dir
 }
 
 export -f lib_dotnet_run
