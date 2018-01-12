@@ -8,6 +8,6 @@ function lib_docker_build {
     
     lib_docker_clean_images $tag
     
-    echo "Building $tag image from $dockerfile..."
+    echo "Building $tag image from $dockerfile"
     docker build -f $dockerfile -t $tag $args
 }
