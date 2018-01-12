@@ -6,34 +6,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 
 source $dir/init.sh
 
-
-# configure paths
-
-default_installation_folder="/opt"
-default_profile_file="$HOME/.bash_profile"
-default_aliases_file="$HOME/.libshell_aliases"
-
-if [[ $# -eq 0 ]]; then
-    installation_folder=$default_installation_folder
-    profile_file=$default_profile_file
-    aliases_file=$default_aliases_file
-else
-    installation_folder=${1:-$default_installation_folder}
-    installation_folder=${2:-$default_profile_file}
-    installation_folder=${3:-$default_aliases_file}
-fi
-
-if [[ ! -w $installation_folder ]]; then
-    echo "Installation folder $installation_folder is not writable. Change permissions to continue."
-    exit 1
-fi
-
-installation_folder=$installation_folder/libshell
-
-if [[ ! -w $profile_file ]]; then
-    echo "Profile file $profile_file is not writable. Change permissions to continue."
-    exit 1
-fi
+source $dir/installation_configuration.sh
 
 
 # remove libshell from installation folder
