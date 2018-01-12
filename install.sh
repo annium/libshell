@@ -14,7 +14,11 @@ source $dir/installation_configuration.sh
 echo "Install to $installation_folder"
 rm -rf $installation_folder
 mkdir -p $installation_folder
-cp -rf base vendor init.sh $installation_folder
+cp -rf \
+    $dir/base \
+    $dir/vendor \
+    $dir/init.sh \
+    $installation_folder
 
 
 # add source instruction to profile_file
