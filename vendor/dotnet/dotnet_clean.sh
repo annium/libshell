@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# libshell_dotnet_clean project_directory
-function libshell_dotnet_clean {
-    local path=$(libshell_resolve_path $1)
+# lib_dotnet_clean project_directory
+function lib_dotnet_clean {
+    local path=$(lib_resolve_path $1)
 
     for dir in $(find $path -type d -name bin); do
         echo "Removing $dir"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# libshell_docker_clean_containers tag
-function libshell_docker_clean_containers {
+# lib_docker_clean_containers tag
+function lib_docker_clean_containers {
     local tag=$1
 
     echo "Removing old $tag containers..."

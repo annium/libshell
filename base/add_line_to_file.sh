@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# libshell_add_line_to_file /path/to/file line goes here
-function libshell_add_line_to_file {
+# lib_add_line_to_file /path/to/file line goes here
+function lib_add_line_to_file {
     local file=$1
     local line=${@:2}
     

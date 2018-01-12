@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# libshell_docker_run tag other docker options
-function libshell_docker_run {
+# lib_docker_run tag other docker options
+function lib_docker_run {
     local tag=$1
     local args=${@:2}
     

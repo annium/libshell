@@ -20,7 +20,7 @@ cp -rf base vendor init.sh $installation_folder
 # add source instruction to profile_file
 
 echo "Writing source instruction to $profile_file..."
-libshell_add_line_to_file $profile_file source $installation_folder/init.sh
+lib_add_line_to_file $profile_file source $installation_folder/init.sh
 
 
 # write aliases to profile_file
@@ -32,8 +32,8 @@ if [[ -r $aliases_file ]]; then
     do
         # if not comment line and both key and value given - add alias
         if [[ $key != $lattice* ]] && [[ ! -z $key ]] && [[ ! -z $value ]]; then
-            libshell_delete_alias $profile_file $key
-            libshell_add_alias $profile_file $key $value
+            lib_delete_alias $profile_file $key
+            lib_add_alias $profile_file $key $value
         fi
     done < $aliases_file
 fi

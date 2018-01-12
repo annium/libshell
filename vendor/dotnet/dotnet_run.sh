@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# libshell_dotnet_run project_directory args go here
-function libshell_dotnet_run {
-    local path=$(libshell_resolve_path $1)
+# lib_dotnet_run project_directory args go here
+function lib_dotnet_run {
+    local path=$(lib_resolve_path $1)
     local project=$(find $path -maxdepth 1 -name *.csproj | head -n 1)
     local name=$(basename $project .csproj)
     local args=${@:2}

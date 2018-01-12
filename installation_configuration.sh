@@ -4,7 +4,7 @@
 
 default_installation_folder="/opt"
 default_profile_file="/etc/profile"
-default_aliases_file="$HOME/.libshell_aliases"
+default_aliases_file="$HOME/.lib_aliases"
 
 if [[ $# -eq 0 ]]; then
     installation_folder=$default_installation_folder

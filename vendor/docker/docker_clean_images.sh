@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# libshell_docker_clean_images tag
-function libshell_docker_clean_images {
+# lib_docker_clean_images tag
+function lib_docker_clean_images {
     local tag=$1
 
     echo "Removing old $tag images..."

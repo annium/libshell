@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# libshell_resolve_path /path/to/../some/../file/or/directory
-function libshell_resolve_path {
+# lib_resolve_path /path/to/../some/../file/or/directory
+function lib_resolve_path {
     local path=$1
 
     if [ -d $path ]; then
