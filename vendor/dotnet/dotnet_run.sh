@@ -11,11 +11,7 @@ function lib_dotnet_run {
         dotnet build $project
     fi
 
-    dll=$(find $path/bin -name "$name.dll" | head -n 1)
-    dir=$(pwd)
-    cd $(dirname $dll)
-    dotnet $(basename $dll) $args
-    cd $dir
+    dotnet $(find $path/bin -name "$name.dll" | head -n 1) $args
 }
 
 export -f lib_dotnet_run
